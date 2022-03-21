@@ -26,3 +26,6 @@
         msg: URL = {{URL}}
       vars:
         URL: hosts.example.com
+
+# If we declare a variable on tasls level then only that tasks can access that variable
+
