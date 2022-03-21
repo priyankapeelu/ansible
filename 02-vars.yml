@@ -30,3 +30,10 @@
 
 # If we declare a variable on tasls level then only that tasks can access that variable
 
+- name: Inventory variable
+  hosts: all
+  tasks:
+    - name: Print URL
+      ansible.builtin.debug:
+        msg: URL = {{URL}}
+
