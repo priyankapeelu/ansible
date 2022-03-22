@@ -1,0 +1,11 @@
+- name: Demo on Loops
+  hosts: localhost
+  tasks:
+    - name: Print Fruit Name
+      debug:
+        msg: Fruit Name = {{item}}
+      loop:
+        - apple
+        - banana
+        - orange
+
