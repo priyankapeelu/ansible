@@ -1,8 +1,8 @@
 [FRONTEND]
-frontend.roboshop.internal
+frontend.roboshop.internal component=frontend HOST=FRONTEND
 [MONGODB]
-172.31.93.18
+172.31.93.18 component=mongodb HOST=MONGODB
 [CATALOGUE]
-catalogue.roboshop.internal
+catalogue.roboshop.internal component=catalogue HOST=CATALOGUE
 
 
