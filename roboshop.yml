@@ -14,5 +14,5 @@
   hosts: CATALOGUE
   become: yes
   roles:
-    - mongodb
+    - catalogue
 
