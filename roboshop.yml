@@ -19,4 +19,4 @@
 - name: RoboShop Setup
   become: yes
   roles:
-    - "{{component}}"
+    - "{{role_name}}"
