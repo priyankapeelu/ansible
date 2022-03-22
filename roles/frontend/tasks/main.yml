@@ -56,8 +56,8 @@
 - name: Copy the frontend content to nginx path
   ansible.builtin.copy:
     src: /tmp/frontend-main/static/
-    dest: /usr/share/nginx/html/
+    dest: /usr/share/nginx/html
     remote_src: yes
-
+# Note: IN src and dest, ending / is very important when you are copying directories
 
 
