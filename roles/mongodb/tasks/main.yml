@@ -20,7 +20,7 @@
     state: started
     enabled: yes
 
-- name: Download and Extract MongoDB Schema 
+- name: Download and Extract MongoDB Schema
   include_role:
     name: common
     tasks_from: download

@@ -3,8 +3,16 @@
   become: yes
   roles:
     - frontend
+
 - name: Setup MongoDB Component
   hosts: MONGODB
   become: yes
   roles:
     - mongodb
+
+- name: Setup Catalogue Component
+  hosts: CATALOGUE
+  become: yes
+  roles:
+    - mongodb
+

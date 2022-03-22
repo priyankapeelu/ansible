@@ -2,5 +2,7 @@
 frontend.roboshop.internal
 [MONGODB]
 172.31.93.18
+[CATALOGUE]
+catalogue.roboshop.internal
 
 
