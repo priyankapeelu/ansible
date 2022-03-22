@@ -1,8 +1,8 @@
 [FRONTEND]
-frontend.roboshop.internal role_name=frontend HOST=FRONTEND
+frontend.roboshop.internal role_name=frontend
 [MONGODB]
-172.31.93.18 role_name=mongodb HOST=MONGODB
+172.31.93.18 role_name=mongodb
 [CATALOGUE]
-catalogue.roboshop.internal role_name=catalogue HOST=CATALOGUE
+catalogue.roboshop.internal role_name=catalogue
 
 
