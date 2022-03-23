@@ -4,5 +4,7 @@ frontend.roboshop.internal
 172.31.93.18
 [CATALOGUE]
 catalogue.roboshop.internal
+[REDIS]
+redis.roboshop.internal
 
 
