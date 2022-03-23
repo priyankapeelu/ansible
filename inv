@@ -1,8 +1,8 @@
 [FRONTEND]
-frontend.roboshop.internal role_name=frontend
+frontend.roboshop.internal
 [MONGODB]
-172.31.93.18 role_name=mongodb
+172.31.93.18
 [CATALOGUE]
-catalogue.roboshop.internal role_name=catalogue
+catalogue.roboshop.internal
 
 
