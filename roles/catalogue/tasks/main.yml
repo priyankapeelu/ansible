@@ -48,5 +48,8 @@
 - name: Install NodeJS Dependencies
   community.general.npm:
     path: /home/roboshop/catalogue
+  become_user: roboshop
+
+
 
 
