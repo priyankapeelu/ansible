@@ -40,5 +40,19 @@
     name: roboshop
     comment: RoboShop Project Application User
 
+- name: Download and Extract Frontend
+  include_role:
+    name: common
+    tasks_from: download
 
+- name: Cleanup Old Content
+  ansible.builtin.file:
+    path: /home/roboshop/catalogue
+    state: absent
+
+- name: Copy App Content
+  ansible.builtin.copy:
+    src: /tmp/catalogue-main/
+    dest: /home/roboshop/catalogue/
+    remote_src: yes
 
