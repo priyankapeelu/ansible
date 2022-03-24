@@ -2,6 +2,7 @@
   hosts: localhost
   vars:
     a: abc
+    b: 10
   tasks:
     - name: Condition on Strings
       debug:
@@ -11,3 +12,8 @@
       debug:
         msg: String condition are not True
       when: a != "abc"
+## Strings should be quoted in when condition
+    - name: Number1
+      debug:
+        msg: Both numbers are equal
+      when: b == 10
