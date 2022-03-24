@@ -17,3 +17,9 @@
       debug:
         msg: Both numbers are equal
       when: b == 10
+    - name: Number2
+      debug:
+        msg: b is less than 20
+      when: b < 20
+
+      
