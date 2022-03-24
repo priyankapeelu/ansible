@@ -11,5 +11,6 @@ user.roboshop.internal
 [CART]
 cart.roboshop.internal
 [MYSQL]
-mysql.roboshop.internal
+172.31.88.5
+
 
