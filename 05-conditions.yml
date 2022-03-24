@@ -3,6 +3,8 @@
   vars:
     a: abc
     b: 10
+    c: true
+    d: false
   tasks:
     - name: Condition on Strings
       debug:
@@ -22,4 +24,11 @@
         msg: b is less than 20
       when: b < 20
 
-      
+    - name: Boolean1
+      debug:
+        msg: C is True
+      when: c
+    - name: Boolean2
+      debug:
+        msg: D is False
+      when: not d
