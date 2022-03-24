@@ -6,8 +6,8 @@
     - name: Condition on Strings
       debug:
         msg: String condition is True
-      when: a == abc
+      when: a == "abc"
     - name: Condition on Strings 1
       debug:
         msg: String condition are not True
-      when: a != abc
+      when: a != "abc"
