@@ -1,0 +1,6 @@
+- name: Anisble Filters
+  hosts: localhost
+  tasks:
+    - name: Convert Case of String
+      debug:
+        msg: abc | upper
