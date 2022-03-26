@@ -1,6 +1,8 @@
 - name: Anisble Filters
   hosts: localhost
+  vars:
+    a: abc 
   tasks:
     - name: Convert Case of String
       debug:
-        msg: abc | upper
+        msg: "{{a | upper}}"
