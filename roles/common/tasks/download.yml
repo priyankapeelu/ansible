@@ -21,5 +21,3 @@
     dest: /home/roboshop/{{COMPONENT}}/
     src: /tmp/{{COMPONENT}}-main/
     remote_src: yes
-
-
