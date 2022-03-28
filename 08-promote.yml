@@ -2,5 +2,5 @@
   hosts: localhost
   tasks:
     - name: Print ENV
-      ansible.buitin.debug:
+      ansible.builtin.debug:
         msg: ENV == {{ENV}}
