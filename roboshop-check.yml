@@ -9,6 +9,5 @@
         group_id: sg-0833d6226ab417a8b
         region: us-east-1
         count: 1
-        assign_public_ip: yes
         instance_tags:
           Name: ansible-role-check-instance
