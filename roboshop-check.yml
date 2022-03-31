@@ -40,6 +40,9 @@
   become: True
   gather_facts: Yes
   tasks:
+    - name: set the facts per host
+      set_fact:
+        INSTANCE_ID: "{{hostvars['localhost']['INSTANCE_ID']}}"
     - name: Import the role and Terminate the instance
       block:
         - name: Import a role
