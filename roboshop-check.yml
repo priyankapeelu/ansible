@@ -31,11 +31,14 @@
         delay: 30
         timeout: 120
       loop: "{{ ec2.instances }}"
+    - name: Set a Instance_ID Variable
+      set_fact:
+        INSTANCE_ID: "{{ ec2.instance_ids }}"
 
 - name: Run Role to Test
   hosts: launched
   become: True
-  gather_facts: True
+  gather_facts: no
   tasks:
     - name: Import the role and Terminate the instance
       block:
