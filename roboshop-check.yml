@@ -1,13 +1,49 @@
-- name: Create an EC2 Instance for Ansible Role Testing
+- name: Create a sandbox instance
+  hosts: localhost
+  gather_facts: False
+  vars:
+    instance_type: t3.micro
+    security_group_id: sg-0833d6226ab417a8b
+    image: ami-0be8b202e69bf1313
+    region: us-east-1
+  tasks:
+    - name: Launch instance
+      amazon.aws.ec2:
+         count: 1
+         group: "{{ security_group_id }}"
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+         instance_tags:
+          Name: ansible-role-check-instance
+      register: ec2
+
+    - name: Add new instance to host group
+      add_host:
+        hostname: "{{ item.public_ip }}"
+        groupname: launched
+      loop: "{{ ec2.instances }}"
+
+    - name: Wait for SSH to come up
+      delegate_to: "{{ item.public_ip }}"
+      wait_for_connection:
+        delay: 60
+        timeout: 320
+      loop: "{{ ec2.instances }}"
+
+- name: Run Role to Test
+  hosts: launched
+  become: True
+  gather_facts: True
+  ignore_errors: yes
+  roles:
+    - "{{role_name}}"
+
+- name: Terminate instances
   hosts: localhost
   tasks:
-    - name: Create EC2 Instance
+    - name: Terminate instances that were previously launched
       amazon.aws.ec2:
-        instance_type: t3.micro
-        image: ami-0be8b202e69bf1313
-        wait: yes
-        group_id: sg-0833d6226ab417a8b
-        region: us-east-1
-        count: 1
-        instance_tags:
-          Name: ansible-role-check-instance
+        state: 'absent'
+        instance_ids: '{{ ec2.instance_ids }}'
