@@ -7,6 +7,7 @@
         image: ami-0be8b202e69bf1313
         wait: yes
         group_id: sg-0833d6226ab417a8b
+        region: us-east-1
         count: 1
         assign_public_ip: yes
         instance_tags:
