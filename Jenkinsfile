@@ -13,7 +13,7 @@ pipeline {
 
     stage('Only Branch') {
       when { branch pattern: "ROB-.*", comparator: "REGEXP"}
-      //when { expression { BRANCH_NAME ==~ "ROB-.*" } }
+
       steps {
         sh 'env'
         sh 'echo Only Branch'
@@ -21,7 +21,7 @@ pipeline {
     }
 
     stage('PR') {
-      when { expression { BRANCH_NAME ==~ "PR-.*" } }
+      when { branch pattern: "PR-.*", comparator: "REGEXP"}
       steps {
         sh 'env'
         sh 'echo PR'
