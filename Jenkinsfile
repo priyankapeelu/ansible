@@ -12,7 +12,7 @@ pipeline {
   stages {
 
     stage('Only Branch') {
-      when { branch pattern: "ROB*", comparator: "REGEXP"}
+      when { branch pattern: "ROB-\\d+", comparator: "REGEXP"}
       steps {
         sh 'env'
         sh 'echo Only Branch'
@@ -20,7 +20,7 @@ pipeline {
     }
 
     stage('PR') {
-      when { branch pattern: "PR*", comparator: "REGEXP"}
+      when { branch pattern: "PR-\\d+", comparator: "REGEXP"}
       steps {
         sh 'env'
         sh 'echo PR'
