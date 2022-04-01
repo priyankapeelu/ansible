@@ -12,7 +12,7 @@ pipeline {
   stages {
 
     stage('Only Branch') {
-      when { expression { BRANCH_NAME ==~ "ROB-*" } }
+      when { expression { BRANCH_NAME ==~ "ROB-.*" } }
       steps {
         sh 'env'
         sh 'echo Only Branch'
