@@ -20,7 +20,7 @@ pipeline {
     }
 
     stage('PR') {
-      when { branch pattern: "PR-\\d+", comparator: "REGEXP"}
+      when { expression { BRANCH_NAME ==~ "PR-.*" } }
       steps {
         sh 'env'
         sh 'echo PR'
