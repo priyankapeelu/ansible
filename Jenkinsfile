@@ -39,7 +39,7 @@ pipeline {
 
     stage('TAG') {
       when {
-        environment name: 'TAG_NAME', value: '.*'
+        expression { BRANCH_NAME ==~ ".*" }
       }
       steps {
         sh '''
