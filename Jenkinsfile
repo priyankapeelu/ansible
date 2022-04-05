@@ -28,7 +28,19 @@ pipeline {
 //      }
 //    }
 
-    stage('Test') {
+    stage('MAIN') {
+      when { branch 'main' }
+      steps {
+        sh '''
+          env 
+        '''
+      }
+    }
+
+    stage('TAG') {
+      when {
+        environment name: 'TAG_NAME', value: '*'
+      }
       steps {
         sh '''
           env 
