@@ -39,7 +39,7 @@ pipeline {
 
     stage('TAG') {
       when {
-        environment name: 'TAG_NAME', value: '*'
+        environment name: 'TAG_NAME', value: '.*'
       }
       steps {
         sh '''
