@@ -31,13 +31,16 @@ pipeline {
     stage('TAG') {
       when { branch 'main'}
       steps {
-        sh '''
+        dir('CODE') {
+          git branch: 'main', url: 'https://github.com/raghudevopsb63/ansible'
+          sh '''
           git tag -l
           ls -l 
           pwd
           env 
           #bash -x /tmp/sort
         '''
+        }
       }
     }
 
