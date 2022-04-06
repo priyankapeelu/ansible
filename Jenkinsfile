@@ -34,7 +34,7 @@ pipeline {
         dir('CODE') {
           git branch: 'main', url: 'https://github.com/raghudevopsb63/ansible'
           sh '''
-            bash -x /tmp/sort
+            bash /tmp/sort
           '''
         }
       }
