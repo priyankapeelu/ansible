@@ -33,7 +33,7 @@ pipeline {
       steps {
         sh '''
           env 
-          bash /tmp/sort
+          bash -x /tmp/sort
         '''
       }
     }
