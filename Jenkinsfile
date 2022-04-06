@@ -34,12 +34,12 @@ pipeline {
         dir('CODE') {
           git branch: 'main', url: 'https://github.com/raghudevopsb63/ansible'
           sh '''
-          git tag -l
-          ls -l 
-          pwd
-          env 
-          #bash -x /tmp/sort
-        '''
+            git tag -l
+            ls -l 
+            pwd
+            env 
+            #bash -x /tmp/sort
+          '''
         }
       }
     }
