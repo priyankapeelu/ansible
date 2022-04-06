@@ -32,7 +32,7 @@ pipeline {
       when { branch 'main'}
       steps {
         dir('CODE') {
-          git branch: 'main', url: 'https://github.com/raghudevopsb63/ansible'
+          git branch: 'main', credentialsId: 'GitHub', url: 'https://github.com/raghudevopsb63/ansible'
           sh '''
             TAG=$(bash /tmp/sort)
             git tag $TAG 
