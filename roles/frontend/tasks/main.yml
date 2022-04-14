@@ -10,10 +10,10 @@
   vars:
     APP_USER: root
 
-- name: Cleanup Old HTML Content
-  ansible.builtin.file:
-    path: /usr/share/nginx/html
-    state: absent
+#- name: Cleanup Old HTML Content
+#  ansible.builtin.file:
+#    path: /usr/share/nginx/html
+#    state: absent
 
 #- name: Copy the frontend content to nginx path
 #  ansible.builtin.copy:
