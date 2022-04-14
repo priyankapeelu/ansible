@@ -40,4 +40,4 @@
     dest: "{{APP_LOCATION}}"
     remote_src: yes
   become_user: roboshop
-  
+
