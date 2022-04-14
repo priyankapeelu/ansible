@@ -4,8 +4,15 @@
     comment: RoboShop Project Application User
   register: APP_USER_REGISTER
 
+- name: Cleanup Old Content
+  ansible.builtin.file:
+    path: "{{APP_LOCATION}}"
+    state: absent
+
+############### Download from GitHub
 ### As per standard process we download the software from a release rather than
-### from git repo. Hence we are commenting an
+### from git repo. Hence we are commenting and moving with other steps which is
+### to download from Nexus repo.
 
 #- name: Download and Extract {{COMPONENT}}
 #  ansible.builtin.unarchive:
@@ -13,14 +20,11 @@
 #    dest: /tmp
 #    remote_src: yes
 
-- name: Cleanup Old Content
-  ansible.builtin.file:
-    path: "{{APP_LOCATION}}"
-    state: absent
+#- name: Copy App Content
+#  become_user: "{{APP_USER}}"
+#  ansible.builtin.copy:
+#    dest: "{{APP_LOCATION}}"
+#    src: /tmp/{{COMPONENT}}-main/
+#    remote_src: yes
 
-- name: Copy App Content
-  become_user: "{{APP_USER}}"
-  ansible.builtin.copy:
-    dest: "{{APP_LOCATION}}"
-    src: /tmp/{{COMPONENT}}-main/
-    remote_src: yes
+############### Download from Nexus
