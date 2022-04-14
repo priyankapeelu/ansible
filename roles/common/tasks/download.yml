@@ -39,5 +39,5 @@
     src: http://nexus.roboshop.internal:8081/repository/{{COMPONENT}}/{{COMPONENT}}-{{APP_VERSION}}.zip
     dest: "{{APP_LOCATION}}"
     remote_src: yes
-  become_user: roboshop
+  become_user: "{{APP_USER}}"
 
