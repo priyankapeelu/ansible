@@ -9,6 +9,7 @@
     tasks_from: download
   vars:
     APP_USER: root
+    APP_LOCATION: /usr/share/nginx/html
 
 #- name: Cleanup Old HTML Content
 #  ansible.builtin.file:
