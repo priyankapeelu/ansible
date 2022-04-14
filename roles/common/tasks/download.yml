@@ -28,6 +28,11 @@
 #    remote_src: yes
 
 ############### Download from Nexus
+- name: Create App Location
+  ansible.builtin.file:
+    path: "{{APP_LOCATION}}"
+    state: directory
+
 - name: Download and Extract {{COMPONENT}}
   ansible.builtin.unarchive:
     src: http://nexus.roboshop.internal:8081/repository/${COMPONENT}/${COMPONENT}-${APP_VERSION}.zip
