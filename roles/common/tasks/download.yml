@@ -32,7 +32,7 @@
   ansible.builtin.file:
     path: "{{APP_LOCATION}}"
     state: directory
-  become_user: roboshop
+  become_user: "{{APP_USER}}"
 
 - name: Download and Extract {{COMPONENT}}
   ansible.builtin.unarchive:

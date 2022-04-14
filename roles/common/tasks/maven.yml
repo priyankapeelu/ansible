@@ -11,6 +11,7 @@
     tasks_from: download
   vars:
     APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+    APP_USER: roboshop
 
 #- name: Make maven package
 #  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar

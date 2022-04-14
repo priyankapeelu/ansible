@@ -14,6 +14,7 @@
     tasks_from: download
   vars:
     APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
+    APP_USER: roboshop
 
 #- name: Install NodeJS Dependencies
 #  community.general.npm:

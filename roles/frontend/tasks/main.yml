@@ -7,6 +7,8 @@
   include_role:
     name: common
     tasks_from: download
+  vars:
+    APP_USER: root
 
 - name: Cleanup Old HTML Content
   ansible.builtin.file:
