@@ -11,11 +11,11 @@
   vars:
     APP_LOCATION: "/home/roboshop/{{COMPONENT}}"
 
-- name: Make maven package
-  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
-  args:
-    chdir: /home/roboshop/{{COMPONENT}}
-  become_user: roboshop
+#- name: Make maven package
+#  ansible.builtin.shell: mvn clean package && mv target/shipping-1.0.jar shipping.jar
+#  args:
+#    chdir: /home/roboshop/{{COMPONENT}}
+#  become_user: roboshop
 
 - name: Setup SyetemD
   ansible.builtin.include_role:
