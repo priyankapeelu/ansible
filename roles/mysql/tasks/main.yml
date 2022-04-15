@@ -7,7 +7,6 @@
   ansible.builtin.yum:
     name:
       - mysql-community-server
-      - MySQL-python
     state: installed
 
 - name: Start MySQL Service
@@ -15,6 +14,11 @@
     name: mysqld
     state: started
     enabled: yes
+
+- name: Install bottle python package
+  pip:
+    name: PyMySQL
+    executable: pip3
 
 - name: Check the DB Password by Collecting Information
   community.mysql.mysql_info:
