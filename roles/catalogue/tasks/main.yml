@@ -7,5 +7,5 @@
   register: out
 
 - name: lookup secretsmanager secret in the current region
-  debug: msg="{{out.stdout.'dev/roboshop/secrets'}}"
+  debug: msg="{{out.stdout}}"
   
