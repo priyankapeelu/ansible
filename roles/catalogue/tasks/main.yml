@@ -4,5 +4,5 @@
 #    tasks_from: nodejs
 
 - name: lookup secretsmanager secret in the current region
-  debug: msg="{{ lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1', bypath=true) }}".DOCUMENTDB_MASTER_USERNAME
+  debug: msg="{{ lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1', bypath=true) }}.DOCUMENTDB_MASTER_USERNAME"
   
