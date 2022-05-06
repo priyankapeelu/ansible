@@ -3,9 +3,9 @@
 #    name: common
 #    tasks_from: nodejs
 - name: Sample command
-  shell: echo "{{ lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1') }}"
+  shell: echo "{{ lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1') | to_json  }}"
   register: out
 
 - name: lookup secretsmanager secret in the current region
-  debug: msg="{{lookup(out.stdout, DOCUMENTDB_MASTER_USERNAME)}}"
+  debug: msg="{{out.stdout}}"
   
