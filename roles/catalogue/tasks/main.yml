@@ -2,7 +2,10 @@
 #  include_role:
 #    name: common
 #    tasks_from: nodejs
+- name: Sample command
+  shell: echo "{{ lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1', bypath=true) }}"
+  register: out
 
 - name: lookup secretsmanager secret in the current region
-  debug: msg="{{ lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1', bypath=true) }}.DOCUMENTDB_MASTER_USERNAME"
+  debug: msg="{{out}}"
   
