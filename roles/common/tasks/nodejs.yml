@@ -26,10 +26,6 @@
     name: common
     tasks_from: aws-secret-manager
 
-- name: Print
-  debug:
-    msg: "{{MONGO_USERNAME.stdout}}"
-
 - name: Setup SyetemD
   ansible.builtin.include_role:
     name: common
