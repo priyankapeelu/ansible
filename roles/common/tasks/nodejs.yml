@@ -21,6 +21,17 @@
 #    path: /home/roboshop/{{COMPONENT}}
 #  become_user: roboshop
 
+- name: Fetch the Passwords
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: aws-secret-manager
+  vars:
+    - { "secretName: "DOCUMENTDB_MASTER_USERNAME", "secretVar": "MONGO_USERNAME" }
+
+- name: Print
+  debug:
+    msg: "{{MONGO_USERNAME.stdout}}"
+
 - name: Setup SyetemD
   ansible.builtin.include_role:
     name: common
