@@ -4,7 +4,7 @@
 #    tasks_from: nodejs
 
 - name: Sample command
-  shell: "echo {{ (lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1') | to_json)['DOCUMENTDB_MASTER_USERNAME'] }}"
+  shell: "echo {{lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1') | to_json | json_query('DOCUMENTDB_MASTER_USERNAME') }}"
   register: out
 
 - name: lookup secretsmanager secret in the current region
