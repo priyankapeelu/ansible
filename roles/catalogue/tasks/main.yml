@@ -3,15 +3,4 @@
 #    name: common
 #    tasks_from: nodejs
 
-- name: Sample command
-  shell: "echo {{lookup('amazon.aws.aws_secret', 'dev/roboshop/secrets', region='us-east-1') | to_json}} | jq"
-  register: out
 
-- name: lookup secretsmanager secret in the current region
-  #debug: msg="{{ out.stdout[1:-1] }}"
-  #debug: msg="{{ out.stdout }}"
-  set_fact:
-    test: "{{ out.stdout | from_json }}"
-
-- name: Print some
-  debug: msg="{{test.DOCUMENTDB_MASTER_PASSWORD}}"
