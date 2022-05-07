@@ -26,7 +26,7 @@
     name: common
     tasks_from: aws-secret-manager
   vars:
-    - { "secretName: "DOCUMENTDB_MASTER_USERNAME", "secretVar": "MONGO_USERNAME" }
+    - { secretName: "DOCUMENTDB_MASTER_USERNAME", secretVar: "MONGO_USERNAME" }
 
 - name: Print
   debug:
