@@ -31,6 +31,11 @@
     regexp: '^gid'
     line: gid = {{APP_USER_REGISTER.group}}
 
+- name: Fetch the Passwords
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: aws-secret-manager
+
 - name: Setup SyetemD
   ansible.builtin.include_role:
     name: common
