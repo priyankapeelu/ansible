@@ -2,3 +2,6 @@ COMPONENT: frontend
 APP_LOCATION: /usr/share/nginx/html
 APP_USER: root
 CHECK_MODE: false
+logType: raw
+logLocation: /var/log/nginx/access.log
+
