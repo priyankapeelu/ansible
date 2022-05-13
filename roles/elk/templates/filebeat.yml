@@ -1,5 +1,5 @@
 filebeat.inputs:
-- type: filestream
+- type: log
   enabled: true
 {% if logType == "json" %}
   json.keys_under_root: true
