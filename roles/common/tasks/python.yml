@@ -50,3 +50,8 @@
   ansible.builtin.include_role:
     name: elk
     tasks_from: filebeat
+
+- name: Install Prometheus Node exporter
+  ansible.builtin.include_role:
+    name: prometheus
+    tasks_from: node-exporter
