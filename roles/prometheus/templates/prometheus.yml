@@ -28,6 +28,6 @@ scrape_configs:
       - region: us-east-1
         port: 9100
         filters:
-          - name: "Key:prometheus-monitor"
+          - name: "prometheus-monitor"
             values: ["yes", "true", "Yes", "True", "YES", "TRUE"]
 
