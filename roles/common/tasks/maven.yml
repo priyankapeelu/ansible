@@ -19,6 +19,14 @@
 #    chdir: /home/roboshop/{{COMPONENT}}
 #  become_user: roboshop
 
+- name: Caluclate Memory
+  shell: "echo {{ansible_memory_mb.real.total * 0.8 }} | awk -F . '{print $1}'"
+  register: out
+
+- name: Set Memory Variable
+  set_fact:
+    MEMORY: "{{out.stdout}}"
+
 - name: Setup SyetemD
   ansible.builtin.include_role:
     name: common
