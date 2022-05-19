@@ -27,13 +27,13 @@
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
-  notify: Restart Nginx
+  #notify: Restart Nginx
 
 - name: Copy Nginx Configuration
   ansible.builtin.template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
-  notify: Restart Nginx
+  #notify: Restart Nginx
 
 - name: Start Nginx Service
   ignore_errors: "{{CHECK_MODE}}"
@@ -41,6 +41,7 @@
     name: nginx
     state: started
     enabled: yes
+  when: ENV != "ENV"
 
 - name: Configure Filebeat
   ansible.builtin.include_role:
