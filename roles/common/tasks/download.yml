@@ -41,3 +41,11 @@
     remote_src: yes
   become_user: "{{APP_USER}}"
 
+- name: Download DocumentDB PEM File
+  when: MONGO_CONNECT is defined
+  become_user: "{{APP_USER}}"
+  get_url:
+    url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+    dest: "{{APP_LOCATION}}/rds-combined-ca-bundle.pem"
+
+

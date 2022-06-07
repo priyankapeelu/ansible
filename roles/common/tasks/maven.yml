@@ -19,7 +19,30 @@
 #    chdir: /home/roboshop/{{COMPONENT}}
 #  become_user: roboshop
 
+- name: Caluclate Memory
+  shell: "echo {{ansible_memory_mb.real.total * 0.8 }} | awk -F . '{print $1}'"
+  register: out
+
+- name: Set Memory Variable
+  set_fact:
+    MEMORY: "{{out.stdout}}"
+
 - name: Setup SyetemD
   ansible.builtin.include_role:
     name: common
     tasks_from: systemd
+
+- name: Configure Rsyslog
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: rsyslog
+
+- name: Configure Filebeat
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
+
+- name: Install Prometheus Node exporter
+  ansible.builtin.include_role:
+    name: prometheus
+    tasks_from: node-exporter

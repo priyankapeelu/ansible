@@ -31,7 +31,27 @@
     regexp: '^gid'
     line: gid = {{APP_USER_REGISTER.group}}
 
+- name: Fetch the Passwords
+  ansible.builtin.include_role:
+    name: common
+    tasks_from: aws-secret-manager
+
 - name: Setup SyetemD
   ansible.builtin.include_role:
     name: common
     tasks_from: systemd
+
+- name: Configure Rsyslog
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: rsyslog
+
+- name: Configure Filebeat
+  ansible.builtin.include_role:
+    name: elk
+    tasks_from: filebeat
+
+- name: Install Prometheus Node exporter
+  ansible.builtin.include_role:
+    name: prometheus
+    tasks_from: node-exporter

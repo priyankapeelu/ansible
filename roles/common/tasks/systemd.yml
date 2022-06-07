@@ -10,3 +10,13 @@
     state: restarted
     enabled: yes
     daemon_reload: yes
+  when: ENV != "ENV"
+
+- name: Start {{COMPONENT}} Service
+  ignore_errors: "{{CHECK_MODE}}"
+  ansible.builtin.systemd:
+    name: "{{COMPONENT}}"
+    state: stopped
+    enabled: no
+    daemon_reload: yes
+  when: ENV == "ENV"

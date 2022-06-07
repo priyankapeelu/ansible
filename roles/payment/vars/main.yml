@@ -1,1 +1,3 @@
 COMPONENT: payment
+logType: raw
+logLocation: /var/log/payment.log
